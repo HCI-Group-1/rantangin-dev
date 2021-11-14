@@ -1,0 +1,13 @@
+{
+    "builds": [{
+        "src": "rantangin/wsgi.py",
+        "use": "",
+        "config": { "maxLambdaSize": "15mb" }
+    }],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "rantangin/wsgi.py"
+        }
+    ]
+}
