@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'cart',
     'rest_framework',
     'rest_registration',
+    'accounts'
 ]
 
 REST_REGISTRATION = {
