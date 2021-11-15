@@ -1,1 +1,374 @@
-Hello, World
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Home | Rantangin</title>
+  </head>
+  <body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Navigasi Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#">Rantangin</a>
+        <button
+          class="ms-auto navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="item collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Promo</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Menu</a
+              >
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Makanan</a></li>
+                <li><a class="dropdown-item" href="#">Minuman</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="#">Cemilan</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Keranjang</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">About</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="#">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Jumbroton -->
+    <div
+      class="text-center bg-image rounded-3 mb-3"
+      style="background-image: url('{% static 'img/bg.png' %}')"
+    >
+      <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
+        <div class="container">
+          <div class="d-flex justify-content-center align-items-center">
+            <div class="text-white mt-5 mb-3 p-5">
+              <h1 class="mb-3" style="font-family: Nunito; font-size: 50px">
+                Selamat Datang di Rantangin
+              </h1>
+              <h4 style="font-family: Nunito; font-size: 16px">
+                Rantangin merupakan sebuah start up yang dirintis oleh mahasiswa
+                yang bergerak dibidang F&B yang memiliki moto yaitu dari
+                mahasiswa untuk mahasiswa. Dengan tujuan suapaya mahasiswa dapat
+                makan dengan layak
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br />
+    <br />
+
+    <!-- Product -->
+    <div class="container">
+      <div class="row">
+        <div class="col-3 col-md-4 col-lg-3 align-end">
+          <svg
+            class="fire"
+            width="24"
+            height="24"
+            xmlns="http://www.w3.org/2000/svg"
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+          >
+            <path
+              d="M8.625 0c.61 7.189-5.625 9.664-5.625 15.996 0 4.301 3.069 7.972 9 8.004 5.931.032 9-4.414 9-8.956 0-4.141-2.062-8.046-5.952-10.474.924 2.607-.306 4.988-1.501 5.808.07-3.337-1.125-8.289-4.922-10.378zm4.711 13c3.755 3.989 1.449 9-1.567 9-1.835 0-2.779-1.265-2.769-2.577.019-2.433 2.737-2.435 4.336-6.423z"
+            />
+          </svg>
+        </div>
+
+        <div class="deals col-4 col-md-4 col-lg-3">
+          <p class="promo fw-bold">New Deals</p>
+        </div>
+
+        <div class="deals-1 col-3 col-md-4 col-lg-3">
+          <a class="promo nav-link fw-bold" href="#">More</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="kotak col-4 col-sm-6 col-lg-2 mt-2">
+          <div
+            class="menu-noodle"
+            data-aos="zoom-in"
+            data-aos-duration="10000"
+            data-aos-once="false"
+          >
+            <section id="gambar">
+              <img
+                class="icon-stew mt-2"
+                src="{% static 'img/meat-ball.png' %}"
+              />
+              <div class="kolom">
+                <p class="keterangan-meatball fw-bold">Meatball</p>
+                <p class="deskripsi">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing, elit.
+                  Doloremque non molestiae.
+                </p>
+                <p class="harga fw-bold">Rp.10.000</p>
+                <a class="beli" href="">Buy</a>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="kotak-1 col-4 col-sm-4 col-lg-2 mt-2">
+          <div
+            class="menu-noodle"
+            data-aos="zoom-in"
+            data-aos-duration="10000"
+            data-aos-once="false"
+          >
+            <section id="gambar">
+              <img
+                class="icon mt-2"
+                src="{% static 'img/indomie-noodle.png' %}"
+              />
+              <div class="kolom">
+                <p class="keterangan mt-4 fw-bold">Indomie Noodle</p>
+                <p class="deskripsi">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing, elit.
+                  Doloremque non molestiae.
+                </p>
+                <p class="harga fw-bold">Rp.10.000</p>
+                <a class="beli" href="">Buy</a>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="kotak-2 col-4 col-sm-4 col-lg-2 mt-2">
+          <div
+            class="menu-noodle"
+            data-aos="zoom-in"
+            data-aos-duration="10000"
+            data-aos-once="false"
+          >
+            <section id="gambar">
+              <img
+                class="icon-chicken mt-1"
+                src="{% static 'img/chicken-soup.png' %}"
+              />
+              <div class="kolom">
+                <p class="keterangan-chicken fw-bold">Chicken Soup</p>
+                <p class="deskripsi">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing, elit.
+                  Doloremque non molestiae.
+                </p>
+                <p class="harga fw-bold">Rp.8.000</p>
+                <a class="beli" href="">Buy</a>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="kotak-1 col-4 col-sm-6 col-lg-2 mt-2">
+          <div
+            class="menu-noodle"
+            data-aos="zoom-out"
+            data-aos-duration="10000"
+            data-aos-once="false"
+          >
+            <section id="gambar">
+              <img class="icon-salad mt-2" src="{% static 'img/salad.png' %}" />
+              <div class="kolom">
+                <p class="keterangan-salad fw-bold">Salad</p>
+                <p class="deskripsi">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing, elit.
+                  Doloremque non molestiae.
+                </p>
+                <p class="harga fw-bold">Rp.12.000</p>
+                <a class="beli" href="">Buy</a>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Produk 2 -->
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-3 col-md-4 col-lg-3 align-end">
+          <svg
+            class="fire"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M21.216 8h-2.216v-1.75l1-3.095v-3.155h-5.246c-2.158 6.369-4.252 9.992-6.754 10v-1h-8v13h8v-1h2l2.507 2h8.461l3.032-2.926v-10.261l-2.784-1.813zm.784 11.225l-1.839 1.775h-6.954l-2.507-2h-2.7v-7c3.781 0 6.727-5.674 8.189-10h1.811v.791l-1 3.095v4.114h3.623l1.377.897v8.328z"
+            />
+          </svg>
+        </div>
+
+        <div class="deals col-4 col-md-4 col-lg-3">
+          <p class="promo fw-bold">Recomendation</p>
+        </div>
+
+        <div class="deals-1 col-3 col-md-4 col-lg-3">
+          <a class="promo nav-link fw-bold" href="#">More</a>
+        </div>
+      </div>
+      <!-- Product 2 -->
+      <div class="row">
+        <div class="kotak col-4 col-md-4 col-lg-2 mt-2">
+          <div
+            class="menu-noodle"
+            data-aos="zoom-in"
+            data-aos-duration="10000"
+            data-aos-once="false"
+          >
+            <section id="gambar">
+              <img class="icon-omellet" src="{% static 'img/omellet.png' %}" />
+              <div class="kolom">
+                <p class="keterangan-omellet fw-bold">Omelette</p>
+                <p class="deskripsi">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing, elit.
+                  Doloremque non molestiae.
+                </p>
+                <p class="harga fw-bold">Rp.5.000</p>
+                <a class="beli" href="">Buy</a>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="kotak-1 col-4 col-md-4 col-lg-2 mt-2">
+          <div
+            class="menu-noodle"
+            data-aos="zoom-in"
+            data-aos-duration="10000"
+            data-aos-once="false"
+          >
+            <section id="gambar">
+              <img
+                class="icon-friedrice mt-3"
+                src="{% static 'img/fried-rice.png' %}"
+              />
+              <div class="kolom">
+                <p class="keterangan-friedrice fw-bold">Fried Rice</p>
+                <p class="deskripsi">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing, elit.
+                  Doloremque non molestiae.
+                </p>
+                <p class="harga fw-bold">Rp.14.000</p>
+                <a class="beli" href="">Buy</a>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="kotak-2 col-4 col-md-4 col-lg-2 mt-2">
+          <div
+            class="menu-noodle"
+            data-aos="zoom-in"
+            data-aos-duration="10000"
+            data-aos-once="false"
+          >
+            <section id="gambar">
+              <img
+                class="icon-tomyam mt-2"
+                src="{% static 'img/tomyam.png' %}"
+              />
+              <div class="kolom">
+                <p class="keterangan-tomyam fw-bold">Tom Yam</p>
+                <p class="deskripsi">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing, elit.
+                  Doloremque non molestiae.
+                </p>
+                <p class="harga fw-bold">Rp.10.000</p>
+                <a class="beli" href="">Buy</a>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="kotak-1 col-4 col-md-4 col-lg-2 mt-2">
+          <div
+            class="menu-noodle"
+            data-aos="zoom-in"
+            data-aos-duration="10000"
+            data-aos-once="false"
+          >
+            <section id="gambar">
+              <img
+                class="icon mt-2"
+                src="{% static 'img/indomie-noodle.png' %}"
+              />
+              <div class="kolom">
+                <p class="keterangan mt-4 fw-bold">Indomie Noodle</p>
+                <p class="deskripsi">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing, elit.
+                  Doloremque non molestiae.
+                </p>
+                <p class="harga fw-bold">Rp.10.000</p>
+                <a class="beli" href="">Buy</a>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
