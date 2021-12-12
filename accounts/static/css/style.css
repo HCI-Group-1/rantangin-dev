@@ -1,3 +1,5 @@
+{% load static %}
+
 html {
   scroll-behavior: smooth;
 }
@@ -5,6 +7,7 @@ html {
 body {
   background-color: #fff5f5;
   overflow-x: hidden;
+  font-family: "Nunito";
 }
 
 .navbar {
@@ -15,229 +18,78 @@ body {
   width: 100%;
 }
 
+.navbar-brand {
+  margin-left: 220px;
+}
+
 .item {
-  margin-left: auto;
+  margin-right: 220px;
   font-family: "Nunito";
   font-size: 16px;
 }
 
-.text-1 {
-  margin: auto;
-  margin-top: 10px;
-}
-
-.icon-promo {
-  display: flex;
+.mask {
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 400px;
 }
 
 .fire {
-  margin-left: 300px;
+  margin-left: 10%;
+  float: left;
 }
 
 p.promo {
   padding-top: 2px;
   font-family: "Nunito";
   font-size: 18px;
+  float: left;
 }
 
 a.promo {
+  padding-left: 0px;
   font-family: "Nunito";
   font-size: 14px;
+  margin-left: 80%;
 }
 
-.deals-1 {
-  margin-left: 20%;
-}
-
-.icon-stew {
-  width: 132px;
-  height: 131px;
-  margin-left: 18%;
-  filter: drop-shadow(0px 38px 80px rgba(0, 0, 0, 0.07))
-    drop-shadow(0px 13.8706px 29.2013px rgba(0, 0, 0, 0.0482987))
-    drop-shadow(0px 6.73393px 14.1767px rgba(0, 0, 0, 0.0389404))
-    drop-shadow(0px 3.3011px 6.94968px rgba(0, 0, 0, 0.0310596))
-    drop-shadow(0px 1.30526px 2.74791px rgba(0, 0, 0, 0.0217013));
-}
-
-.keterangan-meatball {
-  margin-left: 20px;
-  margin-top: 26px;
+#gambar {
+  width: 100%;
+  height: 105%;
+  border-radius: 20px;
   font-family: "Nunito";
-  font-size: 20px;
-}
-
-img {
-  -webkit-transition: -webkit-transform 1s;
-}
-
-img:hover {
-  -webkit-transform: rotate(360deg) translateZ(0);
+  background-color: #ffffff;
+  box-shadow: 0px 100px 80px rgba(0, 0, 0, 0.07),
+    0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275),
+    0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725);
 }
 
 .icon {
-  width: 130px;
-  height: 130px;
-  margin-left: 18%;
-  filter: drop-shadow(0px 33px 80px rgba(34, 34, 34, 0.06))
-    drop-shadow(0px 13.7866px 33.4221px rgba(34, 34, 34, 0.0431313))
-    drop-shadow(0px 7.37098px 17.869px rgba(34, 34, 34, 0.0357664))
-    drop-shadow(0px 4.13211px 10.0172px rgba(34, 34, 34, 0.03))
-    drop-shadow(0px 2.19453px 5.32008px rgba(34, 34, 34, 0.0242336))
-    drop-shadow(0px 0.913195px 2.21381px rgba(34, 34, 34, 0.0168687));
+  width: 70%;
+  height: 150%;
 }
 
-.icon-salad {
-  width: 120px;
-  height: 120px;
-  margin-left: 18%;
-  filter: drop-shadow(0px 80px 80px rgba(0, 0, 0, 0.07))
-    drop-shadow(0px 33.4221px 33.4221px rgba(0, 0, 0, 0.0503198))
-    drop-shadow(0px 17.869px 17.869px rgba(0, 0, 0, 0.0417275))
-    drop-shadow(0px 10.0172px 10.0172px rgba(0, 0, 0, 0.035))
-    drop-shadow(0px 5.32008px 5.32008px rgba(0, 0, 0, 0.0282725))
-    drop-shadow(0px 2.21381px 2.21381px rgba(0, 0, 0, 0.0196802));
-}
-
-.keterangan-salad {
-  margin-left: 20px;
-  font-family: "Nunito";
-  font-size: 20px;
-  margin-top: 32px;
-}
-
-.icon-chicken {
-  width: 120px;
-  height: 125px;
-  margin-left: 20%;
-  filter: drop-shadow(0px 33px 80px rgba(34, 34, 34, 0.06))
-    drop-shadow(0px 13.7866px 33.4221px rgba(34, 34, 34, 0.0431313))
-    drop-shadow(0px 7.37098px 17.869px rgba(34, 34, 34, 0.0357664))
-    drop-shadow(0px 4.13211px 10.0172px rgba(34, 34, 34, 0.03))
-    drop-shadow(0px 2.19453px 5.32008px rgba(34, 34, 34, 0.0242336))
-    drop-shadow(0px 0.913195px 2.21381px rgba(34, 34, 34, 0.0168687));
-}
-
-.keterangan-chicken {
-  margin-left: 20px;
-  font-family: "Nunito";
-  font-size: 20px;
-  margin-top: 34px;
-}
-
-.icon-friedrice {
-  width: 120px;
-  height: 117px;
-  margin-left: 18%;
-  filter: drop-shadow(0px 62px 80px rgba(34, 34, 34, 0.1))
-    drop-shadow(0px 22.631px 29.2013px rgba(34, 34, 34, 0.0689982))
-    drop-shadow(0px 10.9869px 14.1767px rgba(34, 34, 34, 0.0556291))
-    drop-shadow(0px 5.386px 6.94968px rgba(34, 34, 34, 0.0443709))
-    drop-shadow(0px 2.12963px 2.74791px rgba(34, 34, 34, 0.0310018));
-}
-
-.keterangan-friedrice {
-  margin-left: 20px;
-  font-family: "Nunito";
-  font-size: 20px;
-  margin-top: 33px;
-}
-
-.icon-omellet {
-  width: 140px;
-  height: 120px;
-  margin-left: 16%;
+.kolom {
   margin-top: 20px;
-  filter: drop-shadow(0px 72px 80px rgba(0, 0, 0, 0.07))
-    drop-shadow(0px 26.2812px 29.2013px rgba(0, 0, 0, 0.0482987))
-    drop-shadow(0px 12.759px 14.1767px rgba(0, 0, 0, 0.0389404))
-    drop-shadow(0px 6.25471px 6.94968px rgba(0, 0, 0, 0.0310596))
-    drop-shadow(0px 2.47312px 2.74791px rgba(0, 0, 0, 0.0217013));
+  margin-left: 25px;
 }
 
-.keterangan-omellet {
-  margin-left: 20px;
-  font-family: "Nunito";
-  font-size: 20px;
-  margin-top: 29px;
+/*omellet*/
+.kolom-omellet {
+  margin-top: 32px;
+  margin-left: 25px;
 }
 
-.icon-tomyam {
-  width: 140px;
-  height: 130px;
-  margin-left: 15%;
-  filter: drop-shadow(0px 62px 80px rgba(0, 0, 0, 0.07))
-    drop-shadow(0px 18.6912px 24.1177px rgba(0, 0, 0, 0.0456112))
-    drop-shadow(0px 7.76336px 10.0172px rgba(0, 0, 0, 0.035))
-    drop-shadow(0px 2.80786px 3.62304px rgba(0, 0, 0, 0.0243888));
-}
-
-.keterangan-tomyam {
-  margin-left: 20px;
-  font-family: "Nunito";
-  font-size: 20px;
-  margin-top: 28px;
-}
-
-.kotak {
-  margin-left: 16%;
-}
-
-.menu-noodle {
-  width: 200px;
-  height: 330px;
-  background-color: #ffffff;
-  margin-bottom: 10%;
-  border-radius: 20px;
-  font-family: "Nunito";
-  box-shadow: 0px 67px 80px rgba(0, 0, 0, 0.07),
-    0px 24.4561px 29.2013px rgba(0, 0, 0, 0.0482987),
-    0px 11.873px 14.1767px rgba(0, 0, 0, 0.0389404),
-    0px 5.82036px 6.94968px rgba(0, 0, 0, 0.0310596),
-    0px 2.30138px 2.74791px rgba(0, 0, 0, 0.0217013);
-}
-
-.menu-noodle-1 {
-  width: 200px;
-  height: 330px;
-  background-color: #ffffff;
-  margin-bottom: 10%;
-  border-radius: 20px;
-  font-family: "Nunito";
-}
-
-.menu-noodle-2 {
-  width: 200px;
-  height: 330px;
-  background-color: #ffffff;
-  margin-bottom: 10%;
-  border-radius: 20px;
-  font-family: "Nunito";
-}
-
-.keterangan {
-  margin-left: 20px;
-  font-family: "Nunito";
-  font-size: 20px;
+.kolom-tomyam {
+  margin-top: 31px;
+  margin-left: 25px;
 }
 
 p.deskripsi {
-  font-size: 13px;
-  font-family: "Nunito";
-  margin-left: 20px;
-  font-style: italic;
+  font-size: 12px;
 }
 
 .harga {
-  margin-left: 20px;
-  float: left;
-  font-size: 20px;
-}
-
-.harga-1 {
-  font-size: 20px;
-  margin-top: 3px;
-  margin-left: 20px;
+  margin-top: 5px;
 }
 
 .beli {
@@ -248,8 +100,8 @@ p.deskripsi {
   padding-right: 10px;
   background-color: #f5e8c7;
   border-radius: 8px;
-  margin-left: 20px;
-  margin-bottom: 50px;
+  float: right;
+  margin-right: 25px;
   color: #222222;
   font-family: "Nunito";
 }
@@ -259,7 +111,22 @@ p.deskripsi {
   color: #ffffff;
 }
 
-@media screen and (max-width: 576px) {
+footer {
+  margin-top: 70px;
+  background-color: #ffffff;
+}
+
+.logo {
+  width: 30%;
+  height: 70%;
+  filter: drop-shadow(0px 100px 80px rgba(0, 0, 0, 0.07))
+    drop-shadow(0px 36.5016px 29.2013px rgba(0, 0, 0, 0.0482987))
+    drop-shadow(0px 17.7209px 14.1767px rgba(0, 0, 0, 0.0389404))
+    drop-shadow(0px 8.6871px 6.94968px rgba(0, 0, 0, 0.0310596))
+    drop-shadow(0px 3.43489px 2.74791px rgba(0, 0, 0, 0.0217013));
+}
+
+@media screen and (max-width: 572px) {
   .navbar-brand {
     margin-left: 0px;
   }
@@ -267,36 +134,192 @@ p.deskripsi {
   .item {
     margin-left: 0px;
   }
+}
 
-  .kotak {
-    margin-left: 26px;
-    align-content: center;
-  }
+.brand-wrapper {
+  padding-top: 7px;
+  padding-bottom: 8px; 
+}
 
-  .kotak-1 {
-    margin-left: 60px;
-  }
+.login-section-wrapper {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  padding: 67px 100px;
+  background-color: #fff; 
+}
 
-  .kotak-2 {
-    margin-left: 26px;
-  }
+@media (max-width: 991px) {
+  .login-section-wrapper {
+    padding-left: 50px;
+    padding-right: 50px; } 
+}
 
-  .fire {
-    margin-left: 90px;
-  }
+@media (max-width: 575px) {
+  .login-section-wrapper {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    min-height: 100vh; } 
+}
 
-  p.promo {
-    font-family: "Nunito";
-    margin-top: 2px;
-    padding-right: 10px;
-  }
+.login-wrapper {
+  border: 2px solid #7385C7;
+  border-radius: 15px;
+  width: 300px;
+  max-width: 100%;
+  padding-top: 24px;
+  padding-bottom: 24px; 
+}
 
-  .deals-1 {
-    margin-left: 10px;
-  }
+@media (max-width: 575px) {
+  .login-wrapper {
+    width: 100%; 
+  } 
+}
 
-  a.promo {
-    font-family: "Nunito";
-    font-size: 14px;
+label.mb-2 {
+  font-size: 14px;
+  font-weight: bold;
+  color: #b0adad;
+  margin-left: 40px; 
+}
+
+.form-control {
+  width: 70%;
+  border: 1px solid #e7e7e7;
+  border-radius: 8px;
+  background-color: #e7e7e7;
+  padding: 9px 5px;
+  min-height: 40px;
+  margin-left: 40px;
+  font-size: 12px;
+  font-weight: normal; 
+}
+
+.form-1{
+    margin-left: 40px;
+}
+
+#btn {
+    margin-left: 40px;
+}
+
+@media (max-width: 991px){
+    .form-2{
+        margin-left: 40px;
+    }
+    .d-flex{
+        display: inline-block;
+    }
+    .btn-2{
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 768px){
+    .form-2{
+        margin-left: 40px;
+    }
+
+    .d-flex{
+        display: inline-block;
+    }
+
+    .btn-2{
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 575px){
+    .form-2{
+        margin-left: 41px;
+    }
+
+    .d-flex{
+        display: inline-block;
+    }
+
+    .btn-2{
+        margin-left: 10px;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 575px){
+  .form-control{
+    width: 70%;
   }
+}
+
+.form-control::-webkit-input-placeholder {
+  color: #b0adad; 
+}
+
+.form-control::-moz-placeholder {
+  color: #b0adad; 
+}
+
+.form-control:-ms-input-placeholder {
+  color: #b0adad; 
+}
+
+.form-control::-ms-input-placeholder {
+  color: #b0adad; 
+}
+
+.form-control::placeholder {
+  color: #b0adad; 
+}
+
+a.forgot-password-link {
+  color: #080808;
+  font-size: 12px;
+  text-decoration: none;
+  text-align: right;
+  display: inline-block;
+  margin-bottom: 20px;
+  margin-top: 10px; 
+  margin-left: 41px;
+}
+
+button.btn{
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+a.btn{
+  font-size: 14px;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.login-title {
+  font-size: 30px;
+  color: #222222;
+  font-weight: bold;
+  margin-left: 40px;
+  margin-bottom: 25px; 
+}
+
+.login-img {
+  width: 100%;
+  height: 100vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: left;
+     object-position: left; 
+}
+
+.signup-img {
+  width: 100%;
+  height: 130vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: left;
+     object-position: left; 
 }
