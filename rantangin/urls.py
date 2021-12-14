@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 from django.contrib.auth import views as auth_views
 from accounts import views as accounts_views
@@ -22,8 +24,17 @@ from accounts import views as accounts_views
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('', accounts_views.home, name="home"),
+    path('', accounts_views.HomeView.as_view(), name="home"),
     path('signup/', accounts_views.register, name="signup"),
     path('login/', auth_views.LoginView.as_view(template_name='accounts/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='accounts/logout.html'), name='logout'),
+
+    path('product/<pk>/', accounts_views.ProductView.as_view(), name='product'),
+    path('add-to-cart/<pk>/', accounts_views.add_to_cart, name='add-to-cart'),
+    path('remove-from-cart/<pk>/', accounts_views.remove_from_cart, name='remove-from-cart'),
+    path('keranjang/', accounts_views.OrderSummaryView.as_view(), name='keranjang'),
+   path('reduce-quantity-item/<pk>/', accounts_views.reduce_quantity_item, name='reduce-quantity-item')
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
