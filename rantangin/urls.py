@@ -33,7 +33,8 @@ urlpatterns = [
     path('add-to-cart/<pk>/', accounts_views.add_to_cart, name='add-to-cart'),
     path('remove-from-cart/<pk>/', accounts_views.remove_from_cart, name='remove-from-cart'),
     path('keranjang/', accounts_views.OrderSummaryView.as_view(), name='keranjang'),
-   path('reduce-quantity-item/<pk>/', accounts_views.reduce_quantity_item, name='reduce-quantity-item')
+    path('reduce-quantity-item/<pk>/', accounts_views.reduce_quantity_item, name='reduce-quantity-item'),
+    path('checkout', accounts_views.CheckoutView.as_view(), name='checkout')
 ]
 
 if settings.DEBUG:

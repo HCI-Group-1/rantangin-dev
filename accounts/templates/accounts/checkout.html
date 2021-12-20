@@ -1,0 +1,178 @@
+{% load static %} {% block content %}
+<div class="row">
+  <div class="col-lg-6">
+    <div class="box-element" id="form-wrapper">
+      <form id="form">
+        <div id="user-info">
+          <div class="form-field">
+            <input
+              required
+              class="form-control"
+              type="text"
+              name="name"
+              placeholder="Atas Nama.."
+            />
+          </div>
+          <div class="form-field">
+            <input
+              required
+              class="form-control"
+              type="email"
+              name="email"
+              placeholder="Nomor Telepon"
+            />
+          </div>
+        </div>
+
+        <div id="shipping-info">
+          <hr />
+          <p>Informasi Pengantaran</p>
+          <hr />
+          <div class="form-field">
+            <input
+              class="form-control"
+              type="text"
+              name="address"
+              placeholder="Alamat.."
+            />
+          </div>
+          <div class="form-field">
+            <input
+              class="form-control"
+              type="text"
+              name="city"
+              placeholder="Kota.."
+            />
+          </div>
+          <div class="form-field">
+            <input
+              class="form-control"
+              type="text"
+              name="state"
+              placeholder="Provinsi.."
+            />
+          </div>
+          <div class="form-field">
+            <input
+              class="form-control"
+              type="text"
+              name="zipcode"
+              placeholder="Kode Pos.."
+            />
+          </div>
+        </div>
+
+        <hr />
+        <input
+          id="form-button"
+          class="btn btn-success btn-block"
+          type="submit"
+          value="Continue"
+        />
+      </form>
+    </div>
+
+    <br />
+    <div class="box-element hidden" id="payment-info">
+      <small>Pilihan Pembayaran</small>
+      <button id="make-payment">Lakukan Pembayaran</button>
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="box-element">
+      <a class="btn btn-outline-dark" href="{% url 'keranjang' %}"
+        >&#x2190; Kembali ke Keranjang</a
+      >
+      <hr />
+      <h3>Pesanan</h3>
+      <hr />
+      {% for item in items %}
+      <div class="cart-row">
+        <div style="flex: 2">
+          <img class="row-image" src="{{item.product.imageURL}}" />
+        </div>
+        <div style="flex: 2"><p>{{item.product.name}}</p></div>
+        <div style="flex: 2">
+          <p>Rp. {{item.product.price|floatformat:0}}</p>
+        </div>
+        <div style="flex: 1"><p>{{item.quantity}}</p></div>
+      </div>
+      {% endfor %}
+      <h5>Barang: {{order.get_cart_items}}</h5>
+      <h5>Total: Rp. {{order.get_cart_total|floatformat:0}}</h5>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  var shipping = "{{order.shipping}}";
+  var total = "{{order.get_cart_total|floatformat:0}}";
+
+  if (shipping == "False") {
+    document.getElementById("shipping-info").innerHTML = "";
+  }
+
+  if (shipping == "False" && user != "AnonymousUser") {
+    document.getElementById("form-wrapper").classList.add("hidden");
+    document.getElementById("payment-info").classList.remove("hidden");
+  }
+
+  var form = document.getElementById("form");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    console.log("Form Submitted...");
+    document.getElementById("form-button").classList.add("hidden");
+    document.getElementById("payment-info").classList.remove("hidden");
+  });
+
+  document
+    .getElementById("make-payment")
+    .addEventListener("click", function (e) {
+      submitFormData();
+    });
+
+  function submitFormData() {
+    console.log("Payment button clicked");
+
+    var userFormData = {
+      nama: null,
+      email: null,
+      total: total,
+    };
+    var shippingInfo = {
+      address: null,
+      city: null,
+      state: null,
+      zipcode: null,
+    };
+
+    if (shipping != "False") {
+      shippingInfo.address = form.address.value;
+      shippingInfo.city = form.city.value;
+      shippingInfo.state = form.state.value;
+      shippingInfo.zipcode = form.zipcode.value;
+    }
+
+    if (user == "AnonymousUser") {
+      userFormData.nama = form.nama.value;
+      userFormData.email = form.email.value;
+    }
+
+    var url = "/process_order/";
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "X-CSRFToken": csrftoken,
+      },
+      body: JSON.stringify({ form: userFormData, shipping: shippingInfo }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+        alert("Transaksi Selesai");
+        window.location.href = "{% url 'home' %}";
+      });
+  }
+</script>
+{% endblock content %}

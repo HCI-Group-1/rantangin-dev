@@ -323,3 +323,36 @@ a.btn {
   -o-object-position: left;
   object-position: left;
 }
+
+/* Keranjang */
+table.table {
+  margin-top: 10%;
+  background-color: #ffffff;
+  font-family: "Nunito";
+}
+
+.table thead.thead-primary {
+  background: #1089ff;
+}
+
+.table thead th {
+  border-top: 2px solid #1089ff;
+  border-bottom: 2px solid #1089ff;
+  border-color: inherit;
+  padding: 17px 30px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.table tbody th {
+  border: none;
+  padding: 17px 30px;
+  border-bottom: 3px solid #f8f9fd;
+  font-size: 14px;
+}
+
+.table tbody td {
+  padding: 17px 30px;
+  border-bottom: 3px solid #d3e4cd;
+  font-size: 14px;
+}
