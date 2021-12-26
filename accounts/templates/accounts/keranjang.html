@@ -76,14 +76,13 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'keranjang' %}">Keranjang</a>
-            </li>
-
-            <li class="nav-item">
               <a href="#" class="nav-link">About</a>
             </li>
 
             {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'keranjang' %}">Keranjang</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link fw-bold" href="{% url 'logout' %}">Logout</a>
             </li>
@@ -103,7 +102,7 @@
 				<div class="row">
 					<div class="col-md-12 table-responsive table-responsive-sm table-responsive-md table-responsive-lg">
 						<table class="table table-bordered caption-top">
-							<caption class="fw-bold">Nama User</caption>
+							<caption class="fw-bold">{{ user.username }}</caption>
 							<table class="table">
 								<thead>
 								  <tr>
@@ -144,14 +143,14 @@
 										>
 										{% else %} Rp. {{ order_item.get_total_item_price|floatformat:0 }} {% endif %}
 										<a href="{% url 'remove-from-cart' order_item.item.pk %}">
-										  <i class="fas fa-trash float-right text-danger"></i>
+										  X
 										</a>
 									  </td>
 									</tr>
 						  
 									{% empty %}
 									<tr>
-									  <td colspan="5">Your Cart Empity</td>
+									  <td colspan="5">Your Cart is Empty</td>
 									</tr>
 						  
 									<tr>
@@ -183,5 +182,46 @@
 				</div>
 			</div>
 		</section>
-	</body>
+
+  <footer class="text-center text-lg-start">
+    <div class="container p-4">
+      <div class="row">
+        <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Rantangin</h5>
+          <img
+            src="{% static 'img/Rantangin_logo.png' %}"
+            alt="Rantangin Logo"
+            class="logo"
+          />
+        </div>
+
+        <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Location</h5>
+          <p>
+            <i
+              >Jl. R.Mangun Muka Raya No.11, RT.11/RW.14, Rawamangun, Kec.
+              Pulo Gadung, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta
+              13220</i
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center p-3" style="background-color: #f5e8c7">
+      © 2021 Copyright:
+      <a class="text-dark" href="#" style="text-decoration: none"
+        >Rantangin</a
+      >
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>
+
+
 </html>

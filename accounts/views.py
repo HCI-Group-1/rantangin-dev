@@ -7,6 +7,7 @@ from django.views.generic.base import View
 from .forms import UserRegistrationForm, CheckoutForm                                         
 from django.views.generic import ListView, DetailView
 from django.utils import timezone
+import uuid
 from .models import (               
     Item,
     Order,
@@ -49,31 +50,35 @@ class CheckoutView(View):
         try:
             order = Order.objects.get(user=self.request.user, ordered=False)
             if form.is_valid():
-                street_address = form.cleaned_data.get('street_address')
-                apartment_address = form.cleaned_data.get('apartment_address')
-                country = form.cleaned_data.get('country')
+                address = form.cleaned_data.get('address')
                 zip = form.cleaned_data.get('zip')
                 same_billing_address = form.cleaned_data.get('same_billing_address')
                 save_info = form.cleaned_data.get('save_info')
-                payment_option = form.cleaned_data.get('payment_option')
 
                 checkout_address = CheckoutAddress(
                     user=self.request.user,
-                    street_address=street_address,
-                    apartment_address=apartment_address,
-                    country=country,
+                    address=address,
                     zip=zip
                 )
                 checkout_address.save()
                 order.checkout_address = checkout_address
+                order.ordered = True
                 order.save()
-                return redirect('checkout')
+                return redirect('payments')
             messages.warning(self.request, "Failed Chekout")
             return redirect('checkout')
 
         except ObjectDoesNotExist:
             messages.error(self.request, "You do not have an order")
             return redirect("order-summary")
+
+class PaymentView(View):
+    def get(self, *args, **kwargs):
+        order = Order.objects.get(user=self.request.user, ordered=True)
+        context = {
+            'order': order
+        }
+        return render(self.request, 'accounts/payments.html', context)
 
 def register(request):
     if request.method == 'POST':
@@ -135,14 +140,14 @@ def remove_from_cart(request, pk):
             )[0]
             order_item.delete()
             messages.info(request, "Item \""+order_item.item.item_name+"\" remove from your cart")
-            return redirect("accounts:keranjang")
+            return redirect("keranjang")
         else:
             messages.info(request, "This Item not in your cart")
-            return redirect("accounts:keranjang")
+            return redirect("keranjang")
     else:
         #add message doesnt have order
         messages.info(request, "You do not have an Order")
-        return redirect("accounts:keranjang")
+        return redirect("keranjang")
 
 @login_required
 def reduce_quantity_item(request, pk):

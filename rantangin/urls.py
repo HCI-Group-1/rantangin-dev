@@ -34,7 +34,8 @@ urlpatterns = [
     path('remove-from-cart/<pk>/', accounts_views.remove_from_cart, name='remove-from-cart'),
     path('keranjang/', accounts_views.OrderSummaryView.as_view(), name='keranjang'),
     path('reduce-quantity-item/<pk>/', accounts_views.reduce_quantity_item, name='reduce-quantity-item'),
-    path('checkout', accounts_views.CheckoutView.as_view(), name='checkout')
+    path('checkout/', accounts_views.CheckoutView.as_view(), name='checkout'),
+    path('payments/', accounts_views.PaymentView.as_view(), name='payments')
 ]
 
 if settings.DEBUG:

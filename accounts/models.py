@@ -1,7 +1,11 @@
 from django.db import models
 from django.conf import settings
+from django.db.models.fields import UUIDField
 from django.shortcuts import reverse
-from django_countries.fields import CountryField
+from phonenumber_field.modelfields import PhoneNumberField
+from .utils import unique_order_id_generator
+from django.db.models.signals import pre_save
+import uuid
 
 # Create your models here.
 CATEGORY = (
@@ -68,6 +72,7 @@ class OrderItem(models.Model):
 
 
 class Order(models.Model):
+    order_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     items = models.ManyToManyField(OrderItem)
     start_date = models.DateTimeField(auto_now_add=True)
@@ -75,7 +80,7 @@ class Order(models.Model):
     ordered = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.user.username
+        return str(self.order_id)
     
     def get_total_price(self):
         total = 0
@@ -85,10 +90,15 @@ class Order(models.Model):
 
 class CheckoutAddress(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    street_address = models.CharField(max_length=100)
-    apartment_address = models.CharField(max_length=100)
-    country = CountryField(multiple=False)
+    address = models.CharField(max_length=100)
     zip = models.CharField(max_length=100)
 
     def __str__(self):
         return self.user.username
+
+def pre_save_create_order_id(sender, instance, *args, **kwargs):
+    if not instance.order_id:
+        instance.order_id= unique_order_id_generator(instance)
+
+
+pre_save.connect(pre_save_create_order_id, sender=Order)
