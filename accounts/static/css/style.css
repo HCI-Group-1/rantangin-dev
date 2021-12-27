@@ -8,11 +8,9 @@ body {
   font-family: "Nunito";
 }
 
-.navbar {
-  background-color: #f5e8c7;
-  font-family: "Nunito";
-  position: fixed;
-  z-index: 99;
+.navbar{
+  background-color: #F5E8C7;
+  font-family: 'Nunito';
   width: 100%;
 }
 
@@ -167,7 +165,7 @@ footer {
 .login-wrapper {
   border: 2px solid #7385c7;
   border-radius: 15px;
-  width: 300px;
+  width: 450px;
   max-width: 100%;
   padding-top: 24px;
   padding-bottom: 24px;
